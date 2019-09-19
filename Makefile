@@ -6,7 +6,7 @@
 #    By: cgamora <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/08 16:28:46 by cgamora           #+#    #+#              #
-#    Updated: 2019/09/16 20:29:17 by cgamora          ###   ########.fr        #
+#    Updated: 2019/09/19 19:07:41 by cgamora          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRC = ft_strcat.c ft_strcpy.c ft_strdup.c ft_strlcat.c ft_strlen.c \
 	  ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c \
 	  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 	  ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c \
-	  ft_strtrim.c
+	  ft_strtrim.c ft_strsplit.c ft_itoa.c ft_lstadd.c ft_lstnew.c \
+	  ft_lstdelone.c ft_lstdel.c ft_lstiter.c ft_lstmap.c
 
 FLAG = -Wall -Wextra -Werror
 OPTION = -c -I libft.h
@@ -35,7 +36,8 @@ OBJ = ft_strcat.o ft_strcpy.o ft_strdup.o ft_strlcat.o ft_strlen.o \
 	  ft_strdel.o ft_strclr.o ft_striter.o ft_striteri.o ft_strmap.o \
 	  ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o \
 	  ft_strmapi.o ft_strequ.o ft_strnequ.o ft_strsub.o ft_strjoin.o \
-	  ft_strtrim.o
+	  ft_strtrim.o ft_strsplit.o ft_itoa.o ft_lstadd.o ft_lstnew.o \
+	  ft_lstdelone.o ft_lstdel.o ft_lstiter.o ft_lstmap.o
 
 all: $(NAME)
 

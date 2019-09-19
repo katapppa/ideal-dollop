@@ -6,38 +6,48 @@
 /*   By: cgamora <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 20:10:41 by cgamora           #+#    #+#             */
-/*   Updated: 2019/09/18 20:03:04 by cgamora          ###   ########.fr       */
+/*   Updated: 2019/09/19 17:11:58 by cgamora          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+static void		ft_copy(char const *s, char *a, size_t len)
 {
-	int		st;
-	int		e;
-	int		i;
-	char	*ptr;
+	size_t		i;
 
-	st = 0;
 	i = 0;
-	while (s[st] == ' ' || s[st] == '\n' || s[st] == '\t')
-		st++;
-	e = st;
-	while (s[e] != '\0' && s[e] != '\n' && s[e] != '\t')
-		e++;
-	e--;
-	while (s[e] == ' ')
-		e--;
-	ptr = (char*)malloc(((e - st) + 2));
-	if (ptr == NULL)
-		return (NULL);
-	while (e != st - 1)
+	while (*s == '\t' || *s == '\n' || *s == ' ')
+		s++;
+	while (i < len)
 	{
-		ptr[i] = s[st];
+		a[i] = *s;
+		s++;
 		i++;
-		st++;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+}
+
+char			*ft_strtrim(char const *s)
+{
+	size_t		l;
+	size_t		k;
+	char		*a;
+	const char	*tmp;
+
+	l = 0;
+	if (s == 0)
+		return (NULL);
+	tmp = s;
+	k = ft_strlen(s);
+	while ((s[l] == '\t' || s[l] == '\n' || s[l] == ' ') && s[l] != '\0')
+		l++;
+	while (s[k - 1] == '\t' || s[k - 1] == '\n' || s[k - 1] == ' ')
+		k--;
+	if (k < l)
+		k = l;
+	a = ft_strnew(k - l);
+	if (a == 0)
+		return (NULL);
+	ft_copy(tmp, a, k - l);
+	return (a);
 }
