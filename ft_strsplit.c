@@ -6,7 +6,7 @@
 /*   By: cgamora <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 20:22:43 by cgamora           #+#    #+#             */
-/*   Updated: 2019/09/19 17:35:49 by cgamora          ###   ########.fr       */
+/*   Updated: 2019/09/20 15:55:00 by cgamora          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,31 +29,6 @@ static int		word(const char *str, char c)
 	return (k);
 }
 
-static int		size(const char *str, char c)
-{
-	int i;
-
-	i = 0;
-	while (*str != c && *str)
-	{
-		str++;
-		i++;
-	}
-	return (i);
-}
-
-static int		creation(char const *str, char **tab, int i, int s)
-{
-	tab[i] = ft_strnew(s);
-	if (tab[i] == 0)
-	{
-		ft_memdel((void**)tab);
-		return (0);
-	}
-	ft_strncpy(tab[i], str, s);
-	return (1);
-}
-
 char			**ft_strsplit(char const *str, char c)
 {
 	int		k;
@@ -72,8 +47,8 @@ char			**ft_strsplit(char const *str, char c)
 	{
 		while (*str == c)
 			str++;
-		s = size(str, c);
-		if (creation(str, tab, i, s) == 0)
+		s = ft_sizeifc(str, c);
+		if (ft_memfill(str, tab, i, s) == 0)
 			return (0);
 		while (*str != c && *str != '\0')
 			str++;

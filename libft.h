@@ -6,7 +6,7 @@
 /*   By: cgamora <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 17:08:15 by cgamora           #+#    #+#             */
-/*   Updated: 2019/09/19 19:06:49 by cgamora          ###   ########.fr       */
+/*   Updated: 2019/09/20 18:32:32 by cgamora          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,9 @@ void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void*, size_t));
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+int				ft_sizeifc(const char *str, char c);
+int				ft_memfill(char const *str, char **tab, int i, int s);
+void			ft_lstfree(void *content, size_t contsize);
+void			ft_swap(int *a, int *b);
+int				ft_fact(int nb);
 #endif

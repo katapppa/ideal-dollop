@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_sizeifc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgamora <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/19 18:58:00 by cgamora           #+#    #+#             */
-/*   Updated: 2019/09/20 16:06:08 by cgamora          ###   ########.fr       */
+/*   Created: 2019/09/20 14:44:07 by cgamora           #+#    #+#             */
+/*   Updated: 2019/09/20 14:54:23 by cgamora          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void*, size_t))
+int		ft_sizeifc(const char *str, char c)
 {
-	t_list *a;
+	int	i;
 
-	if (alst)
+	i = 0;
+	while (*str != c && *str)
 	{
-		while (*alst)
-		{
-			a = (*alst);
-			(*alst) = (*alst)->next;
-			del((a)->content, (a)->content_size);
-			ft_memdel((void**)&a);
-		}
-		free(*alst);
+		str++;
+		i++;
 	}
+	return (i);
 }
